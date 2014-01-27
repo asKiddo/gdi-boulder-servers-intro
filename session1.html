@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Section 1 ~ Intro to Servers ~ Girl Develop IT</title>
+		<meta name="description" content="">
+		<meta name="author" content="Weston Platter">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<link rel="stylesheet" href="reveal/css/reveal.css">
+		<link rel="stylesheet" href="reveal/css/theme/gdilight.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<!-- light editor<link rel="stylesheet" href="lib/css/light.css">-->
+		<!-- dark editor--><link rel="stylesheet" href="reveal/lib/css/light.css">
+
+		<!-- If use the PDF print sheet so students can print slides-->
+		
+		<link rel="stylesheet" href="reveal/css/print/pdf.css" type="text/css" media="print">
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+    
+    <style>
+      code.html {font-size: 130%;}
+      
+      .wider {
+      	width: 150%;
+      }
+    </style>
+	</head>
+
+	<body>
+		<div class="reveal">
+
+			<div class="slides">
+			  <section>
+				  <h2>Welcome!</h2>
+				  
+				  <!-- TODO wifi info -->
+				  <!-- <p>Wifi Info</p>
+				  <p><strong>Network:</strong> SGGuest</p>
+				  <p><strong>Password:</strong> GridSend0909</p> -->
+				  <hr/>
+				  
+				  <!-- TODO decide on sublime settings -->
+				  <div class="left-align">
+				    <p>If you have not done so already, please download Sublime Text 2.</p>
+				    <p>Modify your settings to turn off auto correct, and tab completion.</p>
+				   
+				    <p>Insert the following code into your preferences &amp; save</p>
+				    <ul>
+				      <li style="margin: 0 0 0 80px;">"tab_completion": false,</li>
+				      <li style="margin: 0 0 0 40px;">"auto_complete": false</li>
+				    </ul>
+				     <p><small>Ask a TA if you need help setting this up.</small></p>
+				  </div>
+				</section>
+
+				<!-- Opening slide -->
+				<section>
+				  <img src = "images/gdi_logo_badge.png">
+				  <h3>Intro to Servers</h3>
+				  <h4>Session 1</h4>
+				</section>
+				
+				<section>
+					<!-- TODO confirm download link -->
+					<!-- TODO package into PDF when finished -->
+				  <h3>Class notes</h3>
+				  <!-- 
+				  <p>All slides are available to download at <a href="http://gdiboulder.com/htmlcss">gdiboulder.com/htmlcss</a></p>
+				  <p>All class slides are also available on github at <a href="https://github.com/gdiboulder">github.com/gdiboulder</a></p> 
+					-->
+				</section>
+	
+				<!-- Welcome -->
+				<section class="hide-pdf">
+				  <h3>Welcome!</h3>
+				  <div class = "left-align">
+				  <p>Girl Develop It is here to provide affordable and accessible programs to learn software through mentorship and hands-on instruction.</p>
+				  <p class ="green">Some "rules"</p>
+				  <ul>
+				    <li>We are here for you!</li>
+				    <li>Every question is important</li>
+				    <li>Help each other</li>
+				    <li>Have fun</li>
+				  </ul>
+				  </div>
+				</section>
+	
+				<section>
+				  <h3>Thanks to our sponsor</h3>
+				  <!-- TODO should this be moved to Simple Eneregy? -->
+				  <img src="images/sponsors/sendgrid.jpg" />
+				</section>
+				
+				<!-- Instructor Intro -->
+				<section class="hide-pdf">
+				  <h3>About your instructor</h3>
+				  <br>
+				  <h4>Weston Platter</h4>
+				  <br>
+				  <div >
+				    <ul>
+				    	<li>Found software through friends</li>
+				    	<br>
+				      <li>Work
+				      	<ul>
+				      		<li>Co-Founder @ Venture IO</li>
+				      		<li class="wider">GridKick - databases on demand</li>
+				      	</ul>
+				      </li>
+				      <br>
+				      <li>Twitter: <a href="http://twitter.com/westonplatter">@westonplatter</a></li>
+				      <li>E-mail: <a href="mailto:westonplatter@gmail.com">westonplatter@gmail.com</a></li>
+				    </ul>
+				  </div>
+				</section>
+				<section class="hide-pdf">
+				  <h3>Why are you teaching?</h3>
+				  <div>
+				  	<br>
+				  	<p>Friends showed me how to dream with software</p>
+				  	<!-- TODO picture of gridkick setup -->
+				  	<p>Inspire you as the next generation of software engineers</p>
+				  </div>
+				</section>
+				<section class="hide-pdf">
+					<h3>Teaching Assistants</h3>
+					
+					<!-- TODO get tas' permissions to introduce them  -->
+					<br>
+					<p>TA1</p>
+					
+					<br>
+					<p>TA2</p>
+				</section>
+				
+				<section class="hide-pdf">
+				  <h3>Welcome!</h3>
+				  <div class = "left-align">
+				  <p class = "blue">Tell us about yourself.</p>
+				  <ul>
+				    <li>Who are you?</li>
+				    <li class="wider">What do you hope to get out of the class?</li>
+				  </ul>
+				  </div>
+				</section>
+				
+				<!-- course overview -->
+				<section>
+					<h3>4 sessions</h3>
+					<div class="left-align">
+						<p>Session 1 - What are servers? What is the internet?</p>
+						<p>Session 2 - How to interact with servers</p>
+						<p>Session 3 - How to setup and use NGINX</p>
+						<p>Session 4 - How to use Vagrant</p>
+					</div>
+				</section>
+			</div> <!-- end of div class="slides" -->
+			
+			<footer>
+				<div class="copyright">
+				  Intro to Servers &hearts; Girl Develop It Boulder 
+				  <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
+				</div>
+	    </footer>
+		</div><!-- end of div class="reveal" -->
+
+
+		<script src="reveal/lib/js/head.min.js"></script>
+		<script src="reveal/js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'reveal/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'reveal/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
