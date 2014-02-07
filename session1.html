@@ -30,6 +30,18 @@
       .wider {
       	width: 150%;
       }
+      
+      p.citation {
+      	font-size: 50%;
+      }
+      
+      .inline-code {
+      	background-color: rgb(63, 63, 63); 
+      	color: rgb(220, 220, 220); 
+      	font-family: monospace; 
+      	text-align: left; 
+      	white-space: pre-wrap;
+      }
     </style>
 	</head>
 
@@ -62,7 +74,7 @@
 
 				<!-- Opening slide -->
 				<section>
-				  <img src = "images/gdi_logo_badge.png">
+				  <img src="images/gdi_logo_badge.png">
 				  <h3>Intro to Servers</h3>
 				  <h4>Session 1</h4>
 				</section>
@@ -82,8 +94,9 @@
 				  <h3>Welcome!</h3>
 				  <div class = "left-align">
 				  <p>Girl Develop It is here to provide affordable and accessible programs to learn software through mentorship and hands-on instruction.</p>
-				  <p class ="green">Some "rules"</p>
-				  <ul>
+				  <br>
+				  <p class="green">Some "rules"</p>
+				  <ul class="wider">
 				    <li>We are here for you!</li>
 				    <li>Every question is important</li>
 				    <li>Help each other</li>
@@ -94,8 +107,7 @@
 	
 				<section>
 				  <h3>Thanks to our sponsor</h3>
-				  <!-- TODO should this be moved to Simple Eneregy? -->
-				  <img src="images/sponsors/sendgrid.jpg" />
+				  <img src="images/sponsors/simple_energy.jpg" />
 				</section>
 				
 				<!-- Instructor Intro -->
@@ -124,30 +136,29 @@
 				  <h3>Why are you teaching?</h3>
 				  <div>
 				  	<br>
-				  	<p>Friends showed me how to dream with software</p>
-				  	<!-- TODO picture of gridkick setup -->
-				  	<p>Inspire you as the next generation of software engineers</p>
+				  	<p>College friends showed me how to dream with software</p>
+				  	<br>
+				  	<p>I want to inspire you as the next generation of software engineers</p>
 				  </div>
 				</section>
 				<section class="hide-pdf">
 					<h3>Teaching Assistants</h3>
-					
-					<!-- TODO get tas' permissions to introduce them  -->
 					<br>
-					<p>TA1</p>
-					
+					<p>Jenn</p>
 					<br>
-					<p>TA2</p>
+					<p>Phoneix</p>
 				</section>
 				
 				<section class="hide-pdf">
 				  <h3>Welcome!</h3>
-				  <div class = "left-align">
-				  <p class = "blue">Tell us about yourself.</p>
-				  <ul>
-				    <li>Who are you?</li>
-				    <li class="wider">What do you hope to get out of the class?</li>
-				  </ul>
+				  <div class="left-align">
+				  	<br>
+				  	<p class="blue">Tell us about yourself.</p>
+					  <ul>
+					    <li>Who are you?</li>
+					    <li class="wider">What do you hope to get out of the class?</li>
+					    <li>Favorite chartoon character?</li>
+					  </ul>
 				  </div>
 				</section>
 				
@@ -157,9 +168,223 @@
 					<div class="left-align">
 						<p>Session 1 - What are servers? What is the internet?</p>
 						<p>Session 2 - How to interact with servers</p>
-						<p>Session 3 - How to setup and use NGINX</p>
+						<p>Session 3 - How to setup a website</p>
 						<p>Session 4 - How to use Vagrant</p>
 					</div>
+				</section>
+					
+				<section>
+					<div class="left-align">
+						<p class="blue">Real Question</p>
+						<p>What am I going to understand?</p>
+						<br>
+						<p>We want you to feel comfortable:</p>
+						<ul class="wider">
+							<li>Talking about servers</li>
+							<li>Using SSH to interact with servers</li>
+							<li>Setting up <b>real</b> HTML and Javascript websites</li>
+							<li>Dreaming about servers</li>
+						</ul>
+					</div>
+				</section>
+				
+				<section>
+					<h3>What is a server?</h3>
+					<div class="fragment">
+						<img src="images/google-servers-rack.jpg">
+						<p>Server rack at Google datacenter</p>
+						<p class="citation">http://www.google.com/about/datacenters/gallery/images/_2000/PRY_20.jpg</p>
+					</div>
+				</section>
+				
+				<section>
+					<h3>Server Rack</h3>
+					<div>
+						<img src="images/illustrations-server-rack.jpg">
+					</div>
+				</section>
+				
+				<section>
+					<h3>Server</h3>
+					<div>
+						<p>Server is an "industrian" version of a Desktop</p>
+						<img src="images/illustrations-server.jpg">
+					</div>
+				</section>
+				
+				<section>
+					<h3>More practically</h3>
+					<br>
+					<div>
+						<p class='left-align'>a <b>server</b>:</p>
+						<br>
+						<ul class="wider">
+							<li>is computer in a datacenter</li>
+							<li>has an IP address</li>
+							<li>can be virtualized</li>
+						</ul>
+					</div>
+				</section>
+				
+				<section>
+					<h3>What do severs do?</h3>
+					<br>
+					<p>First, we need to ask ...</p>
+					<br>
+					<h3>How does the internet work?</h3>
+				</section>
+				
+				<section>
+					<h3>How does the internet work?</h3>
+					<br>
+					<p>Send and Reveive information over HTTP</p>
+					<br>
+					<img src="images/http-send-receive.jpg">
+				</section>
+				
+				<section>
+					<h3>But much bigger</h3>
+					<p>search on google for "mark zukerberg</p>
+					<p>click on Mark's facebook page</p>
+					<img src="images/http-overview.png">
+				</section>
+				
+				<section>
+					<h3>Opeations in order</h3>
+					<ol>
+						<li>HTTP Request. <a href="http://google.com">google.com</a></li>
+						<li>HTTP Response. <a href="http://google.com">google.com</a></li>
+						<li>HTTP Request. Search for "Zukerberg profile page"</li>
+						<li>HTTP Response. Search results. Click on 1st result</li>
+						<li>HTTP Request. <a href="http://facebook.com/zuck">facebook.com/zuck</a></li>
+						<li>HTTP Response. Mark's profile page</li>
+					</ol>
+					<br>
+					<br>
+					
+					<div class="left-align">
+						<p>DNS - domain name server</p>
+						<p class="wider">translates URLs (<a href="http://facebook.com">facebook.com</a>) into IP addresses (1.2.3.4)</p>
+					</div>
+				</section>
+				
+				<section>
+					<h3>What do servers do?</h3>
+					<br>
+					<p>Servers and programs running on them</p>
+					<p>receive HTTP requests and</p>
+					<p>send back HTTP responses</p>
+				</section>
+
+				<section>
+					<h3>HTTP Requests in the Wild</h3>
+					<img style="max-height: 80%;" src="images/http-request-headers.png">
+				</section>
+				
+				<section data-markdown>
+					### Basic HTTP Request Headers
+							GET / HTTP/1.1
+							Host: facebook.com
+							Accept: text/html,application/xhtml+xml,application/xml; ... 
+							Connection: keep-alive
+							Cache-Control: max-age=0
+							User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_1) ...
+				</section>
+				
+				<section>
+					<h3>HTTP Request Headers</h3>
+					<pre><code class="undefined">
+ =>  GET / HTTP/1.1
+     Host: facebook.com
+     Accept: text/html,application/xhtml+xml,application/xml; ... 
+     Connection: keep-alive
+     Cache-Control: max-age=0
+     User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_1) ...
+					</code></pre>
+				
+					<br>
+					<div class="left-align">
+						<p><span class="blue">GET</span> - HTTP verb or method</p>
+						<p><span class="blue">/</span> - url path</p>
+						<p><span class="blue">HTTP/1.1</span> - http version being used</p>
+					</div>
+				</section>
+				
+				<section>
+					<h3>HTTP Request Headers</h3>
+					<pre><code class="undefined">
+     GET / HTTP/1.1
+ =>  Host: facebook.com
+ =>  Accept: text/html,application/xhtml+xml,application/xml; ... 
+ =>  Connection: keep-alive
+     Cache-Control: max-age=0
+     User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_1) ...
+					</code></pre>
+					
+					<br>
+					<div class="left-align">
+						<p><span class="blue">Host</span> - the website URL</p>
+						<p><span class="blue">Accept</span> - accepted file types for ther HTTP Response</p>
+						<p><span class="blue">Connection</span> - connection type, there's options</p>
+					</div>
+				</section>
+
+				<section>
+					<h3>HTTP Request Headers</h3>
+					<pre><code class="undefined">
+     GET / HTTP/1.1
+     Host: facebook.com
+     Accept: text/html,application/xhtml+xml,application/xml; ... 
+     Connection: keep-alive
+ =>  Cache-Control: max-age=0
+ =>  User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_1) ...
+					</code></pre>
+					
+					<br>
+					<div class="left-align">
+						<p><span class="blue">Cace-Control</span> - cache or save files (images) locally</p>
+						<p><span class="blue">User-Agent</span> - Browser version sending request</p>
+					</div>
+				</section>
+				
+				<section>
+					<h3>HTTP Response</h3>
+<pre><code>
+HTTP/1.1 200 OK
+Cache-Control: private, no-cache, no-store, must-revalidate
+Expires: Sat, 01 Jan 2000 00:00:00 GMT
+Pragma: no-cache
+X-Content-Type-Options: nosniff
+X-Frame-Options: DENY
+X-XSS-Protection: 0
+Set-Cookie: datr=mSX0Uo094Zdi2_Kyv9eXrWH3; expires=Sun, 07-Feb-2016 00:15:21
+Content-Type: text/html; charset=utf-8
+X-FB-Debug: mlWzOHMacaw6GPk0waEL1JTSHnf9sMZcBC/3CKrCW6k=
+Date: Fri, 07 Feb 2014 00:15:22 GMT
+Connection: keep-alive
+
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot; id=&quot;facebook&quot; class=&quot;no_js&quot;&gt; ... facebook ... &lt;/html&gt;
+</code></pre>
+				
+				
+					<div>
+						<br>
+						<p>Response is able direct how information is used</p>	
+					</div>
+				</section>
+				
+				<section>
+					<h3>What do I need to know about HTTP Request and Response?</h3>
+					
+					<ul class="left-align wider">
+						<li>requests and responses are just text files</li>
+					</ul>
+				</section>
+					
+				<section>
+					<h3>Where do servers come from?</h3>
+					<p class="blue">~ The Cloud ~</p>
 				</section>
 			</div> <!-- end of div class="slides" -->
 			
@@ -190,7 +415,7 @@
 				// Optional libraries used to extend on reveal.js
 				dependencies: [
 					{ src: 'reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'reveal/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'reveal/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 					{ src: 'reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 					{ src: 'reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
 					{ src: 'reveal/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
