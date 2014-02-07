@@ -245,6 +245,9 @@
 					<h3>How does the internet work?</h3>
 					<br>
 					<p>Send and Reveive information over HTTP</p>
+					
+					<br>
+					<p>HTTP = <u>H</u>yper <u>T</u>ext <u>T</u>ransfer <u>P</u>rotocol</p>
 					<br>
 					<img src="images/http-send-receive.jpg">
 				</section>
@@ -288,14 +291,21 @@
 					<img style="max-height: 80%;" src="images/http-request-headers.png">
 				</section>
 				
-				<section data-markdown>
-					### Basic HTTP Request Headers
-							GET / HTTP/1.1
-							Host: facebook.com
-							Accept: text/html,application/xhtml+xml,application/xml; ... 
-							Connection: keep-alive
-							Cache-Control: max-age=0
-							User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_1) ...
+				<section>
+					
+					<h3>Basic HTTP Request Headers</h3>
+					<pre><code>
+  GET / HTTP/1.1
+  Host: facebook.com
+  Accept: text/html,application/xhtml+xml,application/xml; ... 
+  Connection: keep-alive
+  Cache-Control: max-age=0
+  User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_1) ...
+					</code></pre>
+					
+					<br>
+					
+					<p class="fragment">This is really just text</p>
 				</section>
 				
 				<section>
@@ -367,7 +377,7 @@
 				</section>
 				
 				<section>
-					<h3>Covered HTTP Requests ...</h3>
+					<h3>That covers HTTP Requests ...</h3>
 					<br>
 					<p>Send and Reveive information over HTTP</p>
 					<br>
@@ -394,7 +404,6 @@ Connection: keep-alive
 &lt;html lang=&quot;en&quot; id=&quot;facebook&quot; class=&quot;no_js&quot;&gt; ... facebook ... &lt;/html&gt;
 </code></pre>
 				
-				
 					<div>
 						<br>
 						<p>Response is able direct how information is used</p>	
@@ -402,11 +411,39 @@ Connection: keep-alive
 				</section>
 				
 				<section>
+					<h3>How do I make HTTP secure?</h3>
+					<br>
+					<p>If it's just text files, how is this secure?</p>
+					
+					<br>
+					<div class="left-align">
+						<p>For example,</p>
+						<ul class="wider">
+							<li>I can log into my back online</li>
+							<li>I input my credit card on amazon.com</li>
+						</ul>
+					</div>
+
+					<br>
+					<div class="left-align fragment">
+						<p>HTTPS - hyper text transfer protocol secure</p>
+						<br>
+						<p>"secure" status is achieved via "SSL" encryption</p>
+					</div>
+				</section>
+				
+				<section>
+					<h3>Example HTTPS status</h3>
+					<img style="height: 70%; width: 70%;" src="images/facebook-https.png">
+					<img style="height: 70%; width: 70%;" src="images/https-tunnel.png">
+				</section>
+				
+				<section>
 					<h3>What should I know going forward?</h3>
 					<br>
 					<ul class="left-align wider">
 						<li>URLs are really IP addresses</li>
-						<li>Servers are simple computes in big warehouses</li>
+						<li>Servers are simple computers in big warehouses</li>
 						<li>HTTP requests and responses are just text files</li>
 					</ul>
 				</section>
@@ -414,6 +451,16 @@ Connection: keep-alive
 				<section>
 					<h3>Where do servers come from?</h3>
 					<p class="blue">~ The Cloud ~</p>
+					
+					<div class="left-align fragment">
+						<p>Companies allow you to rent servers by the hour</p>
+						<ul>
+							<li class="wider">AWS - Amazon Web Services</li>
+							<li>Heroku</li>
+							<li>Rackspace</li>
+							<li>Digital Ocean</li>
+						</ul>
+					</div>
 				</section>
 			</div> <!-- end of div class="slides" -->
 			
@@ -425,12 +472,9 @@ Connection: keep-alive
 	    </footer>
 		</div><!-- end of div class="reveal" -->
 
-
 		<script src="reveal/lib/js/head.min.js"></script>
 		<script src="reveal/js/reveal.min.js"></script>
-
 		<script>
-
 			// Full list of configuration options available here:
 			// https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
@@ -451,7 +495,6 @@ Connection: keep-alive
 					{ src: 'reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
 				]
 			});
-
 		</script>
 
 	</body>
