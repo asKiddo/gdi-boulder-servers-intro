@@ -35,7 +35,7 @@
           <h3>4 sessions</h3>
           <div class="left-align">
             <p>Session 1 - What are servers? What is the internet?</p>
-            <p><b>Session 2 - How to interact with servers</b></p>
+            <p class="blue">Session 2 - How to interact with servers</p>
             <p>Session 3 - How to setup and use NGINX</p>
             <p>Session 4 - How to use Vagrant</p>
           </div>
@@ -190,7 +190,7 @@
         
         <section>
           <h3>Uxix shell commands</h3>
-          <img src="images/command-generic.png">
+          <img class="scale70" src="images/command-generic.png">
         </section>
         
         <section>
@@ -275,13 +275,18 @@ value = /bin/bash</code></pre>
         
         <section>
           <h3>Unix groups</h3>
-          
+      
           <br>
-          <p><span class="blue">sudo</span> group memebership grants power to do anything</p>
+          <p>For our purposes, the <span class="blue">sudo</span> group membership</p>
+          <p>grants access to do <u>almost</u> anything.</p>
           
           <br>
           <p>Selectively grant <u>permissions</u> to users</p>
           <p>by adding them to groups</p>
+          
+          <br>
+          <p>By invoking sudo while running a shell command, you're invoking root acccess</p>
+          <pre><code>sudo echo "I am root here"</code></pre>
         </section>
         
         <section> 
@@ -413,6 +418,8 @@ ______   _______</code></pre>
         </section>
         
         
+        
+        
         <section>
           <h3>Update our Cloud picture</h3>
           <img src="images/ssh-2-users-groups.png">
@@ -448,22 +455,23 @@ ______   _______</code></pre>
         
         <section>
           <h3>What's a package manager?</h3>
-          
           <p>Gathers package lists from multiple sources</p>
-          
-          <img src="images/apt-get-update.png">
+          <img class="scale50" src="images/apt-get-update.png">
         </section>
         
         <section>
           <h3>Install nginx walk through</h3>
           
-<br>
-<p>Update the apt-get package lists</p>
-<pre><code>sudo apt-get update</code></pre>
+          <br>
+          <p>You'll need to use root access via the sudo commnd</p>
+          
+          <br>
+          <p>Update the apt-get package lists</p>
+          <pre><code>sudo apt-get update</code></pre>
 
-<br>
-<p>Install nginx</p>
-<pre><code>sudo apt-get install nginx</code></pre>
+          <br>
+          <p>Install nginx</p>
+          <pre><code>sudo apt-get install nginx</code></pre>
         </section>
         
         <section>
@@ -506,61 +514,204 @@ deploy@intro-100:~$
           
           <br>
           <p class="fragment"> we didn't tell if where to install</p>
-          <p class="fragment">apt-get didn't tell us</p>
+          <p class="fragment">apt-get didn't log that info</p>
           
           <br>          
           <div class="fragment">
             <p>what if there was a tool ...</p>
             <div class="fragment">
               <p>there is a tool</p>
-<pre><code>where</code></pre>
+              <pre><code>where</code></pre>
             </div>
           </div>
           
           <br>
-          
-<pre class="fragment"><code>
-  where  # => /etc/nginx
-
-</code></pre>
-          
+          <pre class="fragment"><code>where  # => /etc/nginx</code></pre>
         </section>
         
         <section>
-          <h3>Ok, it's at /etc/nginx</h3>
+          <h3>How do we move around</h3> 
+          <h3>within the server?</h3>
           
           <br>
-          <p>Let's go there!</p>
-          <p>Wait, how do we get there?</p>
-          
-          <br>
-          <p>Unix command to the rescue!</p>
           <p><span class="blue">cd</span> - "change directory"</p>
           
           <br>
-<pre><code>cd /etc/nginx</code></pre>
-        </section>
-        
-        <section>
-          couple slides
-          1. ls -als - see all nginx config files
-          2. ls aux | grep ngninx - see process is running
-          3. let's go to 9.8.7.6 - ah, it's running. score.
-        </section>
-        
-        <section>
-          <h3>If time allows - SSH public/private key auth</h3>
+          <pre><code>cd /etc/nginx</code></pre>
+
+          <br>
+          <p>Word of caution - you cannot</p>
+          <pre><code>sudo cd /root</code></pre>
           
-          <ul>
-            <li>ssh-key gen - follow github tutorial - https://help.github.com/articles/generating-ssh-keys</li>
-            <li>ssh deploy@9.8.7.6</li>
-            <li>mkdir .ssh</li>
-            <li>touch authorized_keys</li>
-            <li>nano authorized_keys</li>
-            <li>copy and paste id_rsa.pub</li>
-            <li>save and close file</li>
-            <li>ssh deploy@9.8.7.6</li>
+          <br>
+          <p>Why not?</p>
+          <p>sudo works on executables, and "cd" is a shell builtin</p>
+        </section>
+        
+        <section>
+          <h3>How do we see what's</h3>
+          <h3>in the  of a folder?</h3>
+          
+          <br>
+          <p><span class="blue">ls</span> - List files and directories
+          <pre><code>deploy@intro-00:/etc/nginx$ ls
+
+conf.d          koi-win           naxsi.rules   scgi_params      uwsgi_params
+fastcgi_params  mime.types        nginx.conf    sites-available  win-utf
+koi-utf         naxsi_core.rules  proxy_params  sites-enabled</code></pre>
+          
+          <br>
+          <p>also list user, groups, and permissions</p>
+          <pre><code>deploy@intro-00:/etc/nginx$ ls -als
+total 68
+4 drwxr-xr-x  5 root root 4096 Feb  8 09:38 .
+4 drwxr-xr-x 90 root root 4096 Feb  8 09:38 ..
+4 drwxr-xr-x  2 root root 4096 Nov 21 22:15 conf.d
+4 -rw-r--r--  1 root root  898 Dec 13  2011 fastcgi_params
+...
+4 drwxr-xr-x  2 root root 4096 Feb  8 09:38 sites-enabled
+4 -rw-r--r--  1 root root  497 Sep 25  2011 uwsgi_params
+4 -rw-r--r--  1 root root 3071 Sep 25  2011 win-utf</code></pre>
+          
+        </section>
+        
+        <section>
+          <h3>Files are present, but</h3>
+          <h3>how do we know if it's running?</h3>
+          
+          <br>
+          <p>There's a lot of ways. Easiest way,</p>
+          <pre><code>   ps aux | grep nginx</code></pre>
+          <img class="scale70" src="images/ps-aux.png">
+        </section>
+        
+        <section>
+          <h3>Control NGINX via the</h3>
+          <h3>service command</h3>
+          
+          <br>
+          <p>The service command connects to nginx the</p>
+          <p>"init" script (/etc/init.d/nginx)</p>
+          
+          <br>
+          <p>What can it do?</p>
+          <pre><code>deploy@intro-00:/etc/init.d$ sudo service nginx
+            
+Usage: nginx {start|stop|restart|reload|force-reload|status|configtest}</code></pre>
+          
+          <br>
+          <p>Start nginx</p>
+          <pre><code>sudo service nginx start</code></pre>
+        </section>
+        
+        <section>
+          <h3>Update our cloud illustration</h3>
+          <img class="scale70" src="images/cloud-after-nginx.png">
+        </section>
+        
+        <section>
+          <h3>See the result in your browser</h3>
+          
+          <br>
+          <p>Copy and paste the IP address into your browser</p>
+          
+          <img class="scale70" src="images/nginx.jpgx">
+        </section>
+        
+        
+        <section>
+          <h3>Exercise 4 - Install nginx</h3>
+          
+          <br>
+          <ul class="wider">
+            <li>Update apt-get</li>
+            <li>Use "apt-get" to install nginx</li>
+            <li>Use "where" to find install location</li>
+            <li>Use "ls" to confirm files are present</li>
+            <li>Use "ps" to see if nginx is running</li>
+            <li>Start nginx</li>  
+            <li>See NGINX in your browser</li>
           </ul>
+        </section>
+        
+        <section>
+          <p>If time allows</p>
+          <h3>Exercise 5</h3>
+          <h3>SSH public/private key auth</h3>
+          
+          <br>
+          <div class="left-align">
+            <p>1. Follow the Github tutorial</p>
+            <p><a href="https://help.github.com/articles/generating-ssh-keys">help.github.com/articles/generating-ssh-keys</a></p>
+            <p>create your SSH public/private keys</p>
+          </div>
+          
+          <br>
+          <div class="left-align">
+            <p>2. Make ".ssh" directory</p>
+<pre><code>ssh deploy@9.8.7.6
+cd /home/deploy
+mkdir .ssh
+</code></pre>
+          </div>
+            
+          <br>
+          <div class="left-align">
+            <p>3. Copy your "id_rsa.pub"</p>
+          </div>
+        </section>
+        
+        <section>
+          <h3>SSH public/private key auth</h3>
+          
+          <br>
+          <div class="left-align">
+            <p>4. "Create" a file and paste in id_rsa.pub</p>
+            <p>Start by, </p>
+<pre><code>cd /home/deploy/.ssh
+nano authorized_keys</code></pre>
+            
+            <p>Paste in your "id_rsa.pub"</p>
+            <p>Save, close file, and exit out of SSH connection</p>
+          </div>
+          
+          <br>
+          <div class='left-align'>
+            <p>5. SSH into server (you should not need password)</p>
+            <pre><code>ssh deploy@9.8.7.6</code></pre>
+          </div>
+        </section>
+        
+        <section>
+          <h3>SSH - Secure Shell</h3>
+          <br>
+          <p>encrypted tunnel connection between to 2 "clouds".</p>
+          <img class="scale70" src="images/ssh-auth.png">
+        </section>
+        
+        <section>
+          <h3>We covered</h3>
+          <br>
+          <ul class="wider">
+            <li>SSH - (secure shell)</li>
+            <br>
+            <li>Unix users</li>
+            <li>Unix groups</li>
+            <li>Unix permissions</li>
+            <br>
+            <li>Packages</li>
+            <li>SSH without passwords!</li>
+          </ul>
+        </section>
+        
+        <section>
+          <h3>4 sessions</h3>
+          <div class="left-align">
+            <p>Session 1 - What are servers? What is the internet?</p>
+            <p class="blue">Session 2 - How to interact with servers</p>
+            <p>Session 3 - How to setup and use NGINX</p>
+            <p>Session 4 - How to use Vagrant</p>
+          </div>
         </section>
         
       </div> <!-- end of div class="slides" -->
