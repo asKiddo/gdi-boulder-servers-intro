@@ -441,7 +441,8 @@ ______   _______</code></pre>
           <p>A "Package" is a software program you install</p>
           
           <br>
-          <p>Default package manager for Linux - Ubuntu: <span class="blue">apt-get</span></p>
+          <p>Default package manager for Linux/Ubuntu</p>
+          <p><span class="blue">apt-get</span></p>
         </section>
         
         
@@ -452,6 +453,7 @@ ______   _______</code></pre>
           
           <img src="images/apt-get-update.png">
         </section>
+        
         <section>
           <h3>Install nginx walk through</h3>
           
@@ -467,16 +469,61 @@ ______   _______</code></pre>
         <section>
           <h3>What happened?</h3>
           
-          <br>
-          <p>No clear outpout</p>
-          <p>How do I find out "where it installed" nginx?</p>
-          
-          <br>
-          <p>Unix command to the rescue!</p>
-          <p class="blue">shell command = where</p>
-          
-<pre><code>  where nginx</code></pre>
+<pre><code>deploy@intro-00:~$ sudo apt-get install nginx
+[sudo] password for deploy: 
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following extra packages will be installed:
+  libgd2-noxpm libjpeg-turbo8 libjpeg8 libxslt1.1 nginx-common nginx-full
+Suggested packages:
+  libgd-tools
+The following NEW packages will be installed:
+  libgd2-noxpm libjpeg-turbo8 libjpeg8 libxslt1.1 nginx nginx-common
+  nginx-full
+0 upgraded, 7 newly installed, 0 to remove and 56 not upgraded.
+Need to get 882 kB of archives.
+After this operation, 2,692 kB of additional disk space will be used.
+Do you want to continue [Y/n]?
+</code></pre>
 
+<pre><code>Y</code></pre>
+
+<code><pre>
+Get:1 http://mirrors.digitalocean.com/ubuntu/ precise-updates/main libjpeg-turbo8 amd64 1.1.90+svn733-0ubuntu4.3 [111 kB]
+....
+Setting up nginx (1.1.19-1ubuntu0.5) ...
+Processing triggers for libc-bin ...
+ldconfig deferred processing now taking place
+deploy@intro-100:~$ 
+</code></pre>
+
+        </section>
+        
+        <section>
+          <h3>How do we figure out where</h3>
+          <h3>nginx was installed?</h3>
+          
+          <br>
+          <p class="fragment"> we didn't tell if where to install</p>
+          <p class="fragment">apt-get didn't tell us</p>
+          
+          <br>          
+          <div class="fragment">
+            <p>what if there was a tool ...</p>
+            <div class="fragment">
+              <p>there is a tool</p>
+<pre><code>where</code></pre>
+            </div>
+          </div>
+          
+          <br>
+          
+<pre class="fragment"><code>
+  where  # => /etc/nginx
+
+</code></pre>
+          
         </section>
         
         <section>
@@ -495,20 +542,27 @@ ______   _______</code></pre>
         </section>
         
         <section>
-            <h3>To control servers we'll cover</h3>
-            
-            <br>
-            <p>Well, we want to know what go installed.</p>
-            <p>How do we see what's in a directory?</p>
-            
-            <br>
-            <p>Unx command to the rescue!</p>
-            <p></p>
+          couple slides
+          1. ls -als - see all nginx config files
+          2. ls aux | grep ngninx - see process is running
+          3. let's go to 9.8.7.6 - ah, it's running. score.
         </section>
         
         <section>
-          <h3>SSH keys</h3>
+          <h3>If time allows - SSH public/private key auth</h3>
+          
+          <ul>
+            <li>ssh-key gen - follow github tutorial - https://help.github.com/articles/generating-ssh-keys</li>
+            <li>ssh deploy@9.8.7.6</li>
+            <li>mkdir .ssh</li>
+            <li>touch authorized_keys</li>
+            <li>nano authorized_keys</li>
+            <li>copy and paste id_rsa.pub</li>
+            <li>save and close file</li>
+            <li>ssh deploy@9.8.7.6</li>
+          </ul>
         </section>
+        
       </div> <!-- end of div class="slides" -->
       
       <footer>
